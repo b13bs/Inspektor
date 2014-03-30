@@ -4,7 +4,7 @@ import sys
 
 def parseTextFromImage( path ):
 	api = tesseract.TessBaseAPI();
-	api.Init(".", "eng", tesseract.OEM_DEFAULT);
+	api.Init("OCR", "eng", tesseract.OEM_DEFAULT); # le path du tessdata, a partir du root/main de l'application
 	api.SetPageSegMode(tesseract.PSM_AUTO);
 
 	image = cv.LoadImage( path, cv.CV_LOAD_IMAGE_GRAYSCALE);

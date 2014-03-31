@@ -12,6 +12,7 @@ if directory:
 			if re.match("([^\\s]+(\\.(?i)(jpg|png|gif|bmp|tiff|tif))$)", filename, re.I):
 				filepath = os.path.join(root, filename)
 				print "\n--------- " + filepath + " ----------"
-				text, conf = parseTextFromImage(filepath);
-				print "Confidence: ", conf
-				print unicode(text, errors='ignore')
+				text, conf = parseTextFromImage(filepath)
+				if text and conf:
+					print "Confidence: ", conf
+					print unicode(text, errors='ignore')

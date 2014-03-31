@@ -9,7 +9,7 @@ $(function(){
 		line = line+"</div>";
 		
 		line=line+"<img src='file:///"+data[i][0]+"' class='col-md-4'>";
-		line=line+"<div class='col-md-8'><div class=textbox>"+data[i][1]+"</div><label>Confidence: </label><progress value="+data[i][2]+"></progress></div>";
+		line=line+"<div class='col-md-8'><div class=textbox>"+data[i][1]+"</div><label>Confidence: </label><progress value="+data[i][2]+" max=100></progress></div>";
 		line = line+"</div>";
 		
 		$("#data").append($(line));

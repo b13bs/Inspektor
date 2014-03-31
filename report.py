@@ -11,6 +11,7 @@ def exportAsCSV(data):
 	if filePath:
 		out = csv.writer(open(filePath,"wb"), delimiter=',',quoting=csv.QUOTE_ALL)
 		out.writerows(data)
+		return filePath
 
 def exportAsHTML(data):
 	Tk().withdraw() # pas le full GUI, temporaire..
@@ -23,3 +24,4 @@ def exportAsHTML(data):
 		out = open(filePath+"/data/data.js", "wb")
 		jsonData = json.dumps(data, separators=(',',':'))
 		out.write("data = "+jsonData)
+		return filePath + "/rapport.html"

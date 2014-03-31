@@ -3,7 +3,10 @@ import re
 from Tkinter import Tk
 from tkFileDialog import askdirectory
 from OCR.OcrTools import parseTextFromImage
+from report import *
 
+exportAsCSV([["bob.jpg","bob"],["jo.png","je mapelle jo blo!!"]])
+exportAsHTML([["bob.jpg","bob"],["jo.png","je mapelle jo blo!!"]])
 Tk().withdraw() # pas le full GUI, temporaire..
 directory = askdirectory(initialdir=".", title="Select directory to scan")
 if directory:

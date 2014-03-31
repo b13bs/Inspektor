@@ -1,1 +1,1 @@
-data=[["path.jpg","description","0.5"],["path.jpg","description","0.8"]];
+data=[["path.jpg","description","50"],["path.jpg","description","80"]];

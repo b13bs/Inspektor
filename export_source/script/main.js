@@ -9,8 +9,13 @@ $(function(){
 		line = line+"</div>";
 		
 		line=line+"<img src='file:///"+data[i][0]+"' class='col-md-4'>";
-		line=line+"<div class='col-md-8'><div class=textbox>"+data[i][1]+"</div><label>Confidence: </label><progress value="+data[i][2]+" max=100></progress></div>";
-		line = line+"</div>";
+		line=line+"<div class='col-md-8'><div class=textbox>"+data[i][1]+"</div>";
+		line=line+"<label>Exactitude: </label>";
+		line=line+"<div class='progress'>";
+	  		line=line+"<div class='progress-bar' role='progressbar' aria-valuenow='"+data[i][2]+"' aria-valuemin='0' aria-valuemax='100' style=\"width: "+data[i][2]+"%;\">";
+	   	 		line=line+"<span>"+data[i][2]+"%</span>";
+	  		line=line+"</div>";
+		line=line+"</div>";
 		
 		$("#data").append($(line));
 	}

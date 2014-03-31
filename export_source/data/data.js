@@ -1,1 +1,1 @@
-data=[];
+data=[["path.jpg","description","0.5"],["path.jpg","description","0.8"]];

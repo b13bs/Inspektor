@@ -5,8 +5,8 @@ from tkFileDialog import askdirectory
 from OCR.OcrTools import parseTextFromImage
 from report import *
 
-exportAsCSV([["bob.jpg","bob"],["jo.png","je mapelle jo blo!!"]])
-exportAsHTML([["bob.jpg","bob"],["jo.png","je mapelle jo blo!!"]])
+exportAsCSV([["bob.jpg","bob",0.3],["jo.png","je mapelle jo blo!!",0.8]])
+exportAsHTML([["bob.jpg","bob",0.3],["jo.png","je mapelle jo blo!!",0.8]])
 Tk().withdraw() # pas le full GUI, temporaire..
 directory = askdirectory(initialdir=".", title="Select directory to scan")
 if directory:

@@ -7,18 +7,11 @@ $(function(){
 		line = line+"<div class='col-md-4 table_header'>Image source</div>";
 		line = line+"<div class='col-md-8 table_header'>Texte extrait</div>";
 		line = line+"</div>";
-		for(j in data[i])
-		{
-			if(j==0)
-			{
-				line=line+"<img src='file:///"+data[i][j]+"' class='col-md-4'>";
-			}
-			else
-			{
-				line=line+"<div class='col-md-8 textbox'>"+data[i][j]+"</div>";
-			}
-		}
+		
+		line=line+"<img src='file:///"+data[i][0]+"' class='col-md-4'>";
+		line=line+"<div class='col-md-8'><div class=textbox>"+data[i][1]+"</div><label>Confidence: </label><progress value="+data[i][2]+"></progress></div>";
 		line = line+"</div>";
+		
 		$("#data").append($(line));
 	}
 });

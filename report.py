@@ -24,4 +24,4 @@ def exportAsHTML(data):
 		out = open(filePath+"/data/data.js", "wb")
 		jsonData = json.dumps(data, separators=(',',':'))
 		out.write("data = "+jsonData)
-		return filePath + "/rapport.html"
+		return filePath + "/results.html"

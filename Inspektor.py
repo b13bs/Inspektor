@@ -9,7 +9,7 @@ directory = askdirectory(initialdir=".", title="Select directory to scan")
 if directory:
 	for root, _, files in os.walk(directory):
 		for filename in files:
-			if re.match("([^\\s]+(\\.(?i)(jpg|png|gif|bmp|tiff))$)", filename, re.I):
+			if re.match("([^\\s]+(\\.(?i)(jpg|png|gif|bmp|tiff|tif))$)", filename, re.I):
 				filepath = os.path.join(root, filename)
 				print "\n--------- " + filepath + " ----------"
 				text, conf = parseTextFromImage(filepath);

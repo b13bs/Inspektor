@@ -4,8 +4,8 @@ $(function(){
 	{
 		var line = "<div class=row index='"+i+"'>";
 		line = line+"<div class='column_names col-md-12'>";
-		line = line+"<div class='col-md-4 table_header'>Image source</div>";
-		line = line+"<div class='col-md-8 table_header'>Texte extrait</div>";
+		line = line+"<div class='col-md-4 table_header'>Source image</div>";
+		line = line+"<div class='col-md-8 table_header'>Recognised text</div>";
 		line = line+"</div>";
 		
 		line=line+"<img src='file:///"+data[i][0]+"' class='col-md-4'>";

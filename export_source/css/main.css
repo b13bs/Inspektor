@@ -35,3 +35,8 @@ body
     background: none;
     background-color: #428BCA;
 }
+
+p
+{
+    word-break:break-all;
+}

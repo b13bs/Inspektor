@@ -29,3 +29,9 @@ body
 {
 	margin-bottom:10px;
 }
+
+.nav .slider-selection
+{
+    background: none;
+    background-color: #428BCA;
+}

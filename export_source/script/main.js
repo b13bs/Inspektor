@@ -21,6 +21,36 @@ $(function(){
 	}
 });
 
+//cree le slider de la navbar.
+$(function(){
+	$('#exactitude_slider').slider({
+		tooltip:"none",
+		min:0,
+		max:100,
+		value:0
+	}).on('slide', function(ev)
+	{
+		var val = ev['value'];
+		$('#min').text(val);
+
+	}).on('slideStop', function(ev)
+	{
+		var min = ev['value'];
+		$('.row').each(function() {
+			var exactitude = parseInt($(this).find('.progress-bar').attr('aria-valuenow'));
+			if (exactitude>=min)
+			{
+				$(this).show();
+			}
+			else
+			{
+				$(this).hide();
+			}
+		});
+
+	});
+});
+
 
 //listeners pour le enter dans le keyword filter
 $(function() {
@@ -31,7 +61,7 @@ $(function() {
 });
 
 
-$(document).ready(function() {
+$(function() {
 	$("#standard_search").click(function() {
 		standard_search();
 	});

@@ -112,5 +112,28 @@ function regex_search()
 
 function fuzzy_search()
 {
-	alert("TODO: fuzzy search");
+	var THRESHOLD = 0.25;
+	var filter = $('#filter').val();
+
+	$('.row').each(function() {
+		var text = $(this).find('.textbox').text();
+
+		var a = FuzzySet(text.split(' '));
+		var result = a.get(filter);
+		var similarity = 0;
+		for(i in result)
+		{
+			similarity = Math.max(similarity, result[i][0]);
+		}
+
+		console.log(similarity);
+		if (similarity >= THRESHOLD)
+		{
+			$(this).show();
+		}
+		else
+		{
+			$(this).hide();
+		}
+	});
 }

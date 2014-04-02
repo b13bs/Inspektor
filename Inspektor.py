@@ -1,8 +1,10 @@
-import os
+from os import path
+from os import walk
+from os import system
 import re
 from Tkinter import Tk
 from tkFileDialog import askdirectory
-from OCR.OcrTools import parseTextFromImage
+from OCR.OcrTools import *
 from report import *
 
 results = []
@@ -10,10 +12,10 @@ results = []
 Tk().withdraw() # pas le full GUI, temporaire..
 directory = askdirectory(initialdir=".", title="Select directory to scan")
 if directory:
-	for root, _, files in os.walk(directory):
+	for root, _, files in walk(directory):
 		for filename in files:
 			if re.match("([^\\s]+(\\.(?i)(jpg|png|gif|bmp|tiff|tif))$)", filename, re.I):
-				filepath = os.path.join(root, filename).replace("\\","/")
+				filepath = path.join(root, filename).replace("\\","/")
 				print "\n--------- " + filepath + " ----------"
 				text, conf = parseTextFromImage(filepath)
 				if text and conf:
@@ -30,7 +32,7 @@ if directory:
 		
 		# on essai d'ouvrir le rapport
 		try:
-			os.system("start " + report)
+			system("start " + report)
 		except:
 			pass
 	else:

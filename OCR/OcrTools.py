@@ -1,8 +1,8 @@
 import cv2.cv as cv
 import tesseract
-import os
+import os.path
 import re
-import numpy # pour que PyInstaller aille chercher numpy pour que tesseract fonctionne
+import numpy.core.multiarray # pour que PyInstaller aille chercher numpy pour que tesseract fonctionne
 from PIL import Image
 
 def parseTextFromImage( filepath ):

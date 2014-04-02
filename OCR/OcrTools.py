@@ -42,8 +42,11 @@ def parseTextFromImage( filepath ):
 			except OSError:
 				pass
 				
-			# on retourne le resultat
-			return text, conf
+			# on retourne le texte si ne contient pas seulement des whitespace characters
+			if re.match("^\\s*$", text, re.I):
+				return None, None
+			else:
+				return text, conf
 
 		else:
 			# on envoi directement l'image a tesseract
@@ -51,7 +54,11 @@ def parseTextFromImage( filepath ):
 			tesseract.SetCvImage(image, api)
 			text = api.GetUTF8Text()
 			conf = api.MeanTextConf()
-			return text, conf
+			# on retourne le texte si ne contient pas seulement des whitespace characters
+			if re.match("^\\s*$", text, re.I):
+				return None, None
+			else:
+				return text, conf
 			
 	except IOError:
 		print "Error reading file " + filepath

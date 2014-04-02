@@ -2,10 +2,12 @@ import cv2.cv as cv
 import tesseract
 import os.path
 import re
+import sys
 import numpy.core.multiarray # pour que PyInstaller aille chercher numpy pour que tesseract fonctionne
 from PIL import Image
 
 def parseTextFromImage( filepath ):
+	filepath = filepath.encode(sys.getfilesystemencoding())
 	api = tesseract.TessBaseAPI()
 	api.Init("OCR", "eng", tesseract.OEM_DEFAULT) # le filepath du tessdata, a partir du root/main de l'application
 	api.SetPageSegMode(tesseract.PSM_AUTO)

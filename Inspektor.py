@@ -6,16 +6,22 @@ from Tkinter import Tk
 from tkFileDialog import askdirectory
 from OCR.OcrTools import *
 from report import *
+import imghdr
 
 results = []
 
 Tk().withdraw() # pas le full GUI, temporaire..
 directory = askdirectory(initialdir=".", title="Select directory to scan")
+
 if directory:
 	for root, _, files in walk(directory):
 		for filename in files:
-			if re.match("([^\\s]+(\\.(?i)(jpg|png|gif|bmp|tiff|tif))$)", filename, re.I):
-				filepath = path.join(root, filename).replace("\\","/")
+			filepath = path.join(root, filename).replace("\\","/")
+			#retourne "None" si c'est pas une image
+			filetype = imghdr.what(filepath)
+			
+			if filetype != "None":
+				print filetype
 				print "\n--------- " + filepath + " ----------"
 				text, conf = parseTextFromImage(filepath)
 				if text and conf:

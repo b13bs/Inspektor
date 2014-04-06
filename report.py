@@ -3,20 +3,14 @@ import os
 import shutil
 from json import dumps
 import distutils.core
-from Tkinter import Tk
-from tkFileDialog import asksaveasfilename
 
-def exportAsCSV(data):
-	Tk().withdraw() # pas le full GUI, temporaire..
-	filePath = asksaveasfilename(initialdir=".", title="Export as CSV...")
+def exportAsCSV(filePath, data):
 	if filePath:
 		out = writer(open(filePath,"wb"), delimiter=',',quoting=csv.QUOTE_ALL)
 		out.writerows(data)
 		return filePath
 
-def exportAsHTML(data):
-	Tk().withdraw() # pas le full GUI, temporaire..
-	filePath = asksaveasfilename(initialdir=".", title="Export as HTML...")
+def exportAsHTML(filePath, data):
 	if filePath:
 		os.mkdir(filePath)
 		fromDirectory = "export_source"

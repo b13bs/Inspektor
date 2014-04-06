@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Inspektor results</title>
+   		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<link rel=stylesheet href="css/main.css">
+		<link rel=stylesheet href="css/slider.css">
+	</head>
+
+	<body>
+		<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+			<div class="container">
+				<a class="navbar-brand">Inspektor results</a>
+				<ul class="nav navbar-nav">
+					<li>
+						<form class="navbar-form navbar-left" id='keyword_form'>
+						<div class="form-group">
+							<input type="text" class="form-control" id='filter' placeholder="Filter by ...">
+						</div>
+						<button type="button" class="btn btn-default" id='standard_search'>Match</button>
+						<button type="button" class="btn btn-default" id='regex_search'>RegEx</button>
+						<button type="button" class="btn btn-default" id='fuzzy_search'>Fuzzy</button>
+						</form>
+					</li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<li>
+						<a>Exactitude min. (<span id='min'>0</span>%)</a>
+					</li>
+					<li>
+					<a>
+						<input type='text' id='exactitude_slider'>
+					</a>
+					</li>
+				</ul>
+			</div>
+		</nav>
+
+		<div class="container">
+			<div id="data">
+			</div>
+		</div>
+
+		<script src="js/jquery.js"></script>
+    	<script src="js/bootstrap.min.js"></script>
+    	<script src="js/bootstrap-slider.js"></script>
+		<script src="js/fuzzyset.js"></script>
+
+		<script src="data/data.js"></script>
+		<script src="script/main.js"></script>
+	</body>
+</html>

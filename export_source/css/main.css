@@ -1,0 +1,42 @@
+body
+{
+	padding-top:60px;
+	color:#555555;
+	font-size: 16px;
+}
+
+.row
+{
+    background-color: #F7F7F9;
+    border: 1px solid #E1E1E8;
+    border-radius: 4px;
+    margin-bottom: 14px;
+}
+
+.column_names
+{
+	background:	#D7D7F9;
+	padding:10px;
+	margin-bottom:10px;
+    color: #555555;
+    font-size: 18px;
+    height: 50px;
+    line-height: 20px;
+    padding: 15px;
+}
+
+.textbox
+{
+	margin-bottom:10px;
+}
+
+.nav .slider-selection
+{
+    background: none;
+    background-color: #428BCA;
+}
+
+p
+{
+    word-break:break-all;
+}

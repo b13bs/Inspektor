@@ -4,7 +4,7 @@ from Tkinter import Tk
 from tkFileDialog import askdirectory
 from OCR.OcrTools import parseTextFromImage
 
-Tk().withdraw() # pas le full GUI, temporaire..
+#Tk().withdraw() # pas le full GUI, temporaire..
 directory = askdirectory(initialdir=".", title="Select directory to scan")
 if directory:
 	for root, _, files in os.walk(directory):

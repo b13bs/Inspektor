@@ -40,3 +40,8 @@ p
 {
     word-break:break-all;
 }
+
+.searchhide, .filterhide
+{
+    display: none !important;
+}

@@ -40,11 +40,11 @@ $(function(){
 			var exactitude = parseInt($(this).find('.progress-bar').attr('aria-valuenow'));
 			if (exactitude>=min)
 			{
-				$(this).show();
+				$(this).removeClass('filterhide');
 			}
 			else
 			{
-				$(this).hide();
+				$(this).addClass('filterhide');
 			}
 		});
 
@@ -52,24 +52,20 @@ $(function(){
 });
 
 
-//listeners pour le enter dans le keyword filter
-$(function() {
-	$('#keyword_form').submit(function(e){
-		e.preventDefault();
-		standard_search();
-	});
-});
-
-
 $(function() {
 	$("#standard_search").click(function() {
 		standard_search();
+
 	});
 	$("#regex_search").click(function() {
 		regex_search();
 	});
 	$("#fuzzy_search").click(function() {
 		fuzzy_search();
+	});
+	$('#keyword_form').submit(function(e){
+		e.preventDefault();
+		standard_search();
 	});
 });
 
@@ -82,11 +78,11 @@ function standard_search()
 		var text = $(this).find('.textbox').text();
 		if ( text.toLowerCase().indexOf(filter.toLowerCase()) != -1 )
 		{
-			$(this).show();
+			$(this).removeClass('searchhide');
 		}
 		else
 		{
-			$(this).hide();
+			$(this).addClass('searchhide');
 		}
 	});
 }
@@ -101,11 +97,11 @@ function regex_search()
 		var text = $(this).find('.textbox').text();
 		if ( regex.test(text) )
 		{
-			$(this).show();
+			$(this).removeClass('searchhide');
 		}
 		else
 		{
-			$(this).hide();
+			$(this).addClass('searchhide');
 		}
 	});
 }
@@ -133,11 +129,11 @@ function fuzzy_search()
 
 		if (similarity >= THRESHOLD || filter.length==0)
 		{
-			$(this).show();
+			$(this).removeClass('searchhide');
 		}
 		else
 		{
-			$(this).hide();
+			$(this).addClass('searchhide');
 		}
 	});
 }

@@ -74,7 +74,7 @@ class GUI(tk.Frame):
 
 	def search(self):
 		self.progressBar["value"] = 0
-		self.progressBar["maximum"] = 10000
+		self.progressBar["maximum"] = 1000
 		
 		if DEBUG: print "GO"
 		if DEBUG: print "searchDirectory: " + self.searchDirectory
@@ -97,13 +97,27 @@ class GUI(tk.Frame):
 			
 			# Debut du scan
 			results = []
-			cpt = 0
+			
 			
 			# On passe au travers du repertoire en question
-			print "Inspecting..."
+			if DEBUG: print "Inspecting..."
+
+			# Calcul de la valeur maximale de la progress bar
+			maxValue = 0
+			for root, _, files in walk(self.searchDirectory):
+				for filename in files:
+					maxValue += 1
+			self.progressBar["maximum"] = maxValue
+			
+			cpt = 0
 			for root, _, files in walk(self.searchDirectory):
 				# Pour chaque fichier
 				for filename in files:
+					# Mise a jour de la progress bar
+					self.progressBar["value"] += 1
+					print self.progressBar["value"], "/", self.progressBar["maximum"]
+					self.progressBar.update_idletasks()
+
 					filepath = path.join(root, filename).replace("\\","/")
 					
 					# On analyse l'en-tete du fichier pour determiner s'il s'agit d'une image
@@ -129,9 +143,9 @@ class GUI(tk.Frame):
 							if DEBUG: print "Confidence: ", conf
 							if DEBUG: print unicode(text, errors='ignore')
 							
-			self.progressBar["value"] = 100
-			self.progressBar["maximum"] = 100
-			print "Done."
+			#self.progressBar["value"] = 100
+			#self.progressBar["maximum"] = 100
+			if DEBUG: print "Done."
 			
 			if DEBUG: print "Saving scan results..."
 			report = exportReport(self.outputLocation, results)

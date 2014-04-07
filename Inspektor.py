@@ -115,7 +115,7 @@ class GUI(tk.Frame):
 				for filename in files:
 					# Mise a jour de la progress bar
 					self.progressBar["value"] += 1
-					print self.progressBar["value"], "/", self.progressBar["maximum"]
+					if DEBUG: print self.progressBar["value"], "/", self.progressBar["maximum"]
 					self.progressBar.update_idletasks()
 
 					filepath = path.join(root, filename).replace("\\","/")
@@ -143,15 +143,17 @@ class GUI(tk.Frame):
 							if DEBUG: print "Confidence: ", conf
 							if DEBUG: print unicode(text, errors='ignore')
 							
-			#self.progressBar["value"] = 100
-			#self.progressBar["maximum"] = 100
 			if DEBUG: print "Done."
-			
 			if DEBUG: print "Saving scan results..."
 			report = exportReport(self.outputLocation, results)
 			if DEBUG: print "REPORT: " + report
 			if report:
+				# Rapport cree
 				if DEBUG: print "Done."
+				# On s'assure que la progress bar est a 100%
+				self.progressBar["value"] = 100
+				self.progressBar["maximum"] = 100
+				# On demande si l'utilisateur veut ouvrir le rapport immediatement
 				if tkMessageBox.askyesno("Success", "The inspection is done.\nDo you want to open the resulting report in your default browser?"):
 					# on essai d'ouvrir le rapport
 					try:

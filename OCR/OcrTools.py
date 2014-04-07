@@ -63,5 +63,5 @@ def parseTextFromImage( filepath ):
 				return text, conf
 			
 	except IOError:
-		print "Error reading file " + filepath
+		print "OcrTools: Error reading file " + filepath
 		return None, None

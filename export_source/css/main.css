@@ -45,3 +45,24 @@ p
 {
     display: none !important;
 }
+
+.lefttext
+{
+    float:left;
+	text-size:20px;
+	}
+
+.righttext
+{
+	float:right;
+	text-align:right;
+}
+
+.clearfix
+{
+	overflow: auto;
+	border: 1px dotted black;
+	padding:5px;
+	margin:5px;
+	background:#EAEAEA;
+}

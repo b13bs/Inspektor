@@ -13,6 +13,7 @@ import ttk
 import tkFileDialog
 import sys
 import tkMessageBox
+import hashlib
 from OCR.OcrTools import *
 from report import *
 
@@ -139,7 +140,10 @@ class GUI(tk.Frame):
 						
 						# S'il y a resultat, on l'ajoute a la liste
 						if text and conf:
-							results.append([filepath, text, conf, imgCopy])
+							# On calcule le md5 du fichier original
+							md5 = hashlib.md5(open(filepath, 'rb').read()).hexdigest()
+							
+							results.append([filepath, text, conf, imgCopy, md5])
 							if DEBUG: print "Confidence: ", conf
 							if DEBUG: print unicode(text, errors='ignore')
 							

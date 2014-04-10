@@ -8,7 +8,10 @@ $(function(){
 		line = line+"<div class='col-md-8 table_header'>Recognised text</div>";
 		line = line+"</div>";
 		
-		line=line+"<div class='col-md-4'><a href='file:///"+data[i][3]+"'><img src='file:///"+data[i][3]+"' class='col-md-12'></a><p class='col-md-12'><a href='file:///"+data[i][0]+"'>"+data[i][0]+"</a></p></div>";
+		line=line+"<div class='col-md-4'>"+
+		"<a href='file:///"+data[i][3]+"'><img src='file:///"+data[i][3]+"' class='col-md-12'></a><p class='col-md-12'><a href='file:///"+data[i][0]+"'>"+data[i][0]+"</a></p>"+
+		"<div class=clearfix><span class=lefttext>MD5:</span><span class=righttext>"+data[i][4]+"</span></div>"+
+		"</div>";
 		line=line+"<div class='col-md-8'><div class=textbox>"+data[i][1]+"</div>";
 		line=line+"<label>Exactitude: </label>";
 		line=line+"<div class='progress'>";

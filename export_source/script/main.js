@@ -57,17 +57,21 @@ $(function(){
 
 $(function() {
 	$("#standard_search").click(function() {
+		reset_highlights();
 		standard_search();
 
 	});
 	$("#regex_search").click(function() {
+		reset_highlights();
 		regex_search();
 	});
 	$("#fuzzy_search").click(function() {
+		reset_highlights();
 		fuzzy_search();
 	});
 	$('#keyword_form').submit(function(e){
 		e.preventDefault();
+		reset_highlights();
 		standard_search();
 	});
 });
@@ -81,6 +85,8 @@ function standard_search()
 		var text = $(this).find('.textbox').text();
 		if ( text.toLowerCase().indexOf(filter.toLowerCase()) != -1 )
 		{
+			if(filter.length>0)
+				highlight($(this).find('.textbox'), text.toLowerCase().indexOf(filter.toLowerCase()), filter.length);
 			$(this).removeClass('searchhide');
 		}
 		else
@@ -100,6 +106,9 @@ function regex_search()
 		var text = $(this).find('.textbox').text();
 		if ( regex.test(text) )
 		{
+			if(filter.length>0)
+				highlight($(this).find('.textbox'), text.indexOf(text.match(filter)[0]), text.match(filter)[0].length);
+
 			$(this).removeClass('searchhide');
 		}
 		else
@@ -117,6 +126,7 @@ function fuzzy_search()
 		var text = $(this).find('.textbox').text();
 
 		var similarity = 0;
+		var index = 0;
 		if(filter.length>0)
 			for(var i=0;i<text.length;i++)
 			{
@@ -127,11 +137,17 @@ function fuzzy_search()
 				var result = a.get(filter);
 				console.log(result);
 				if(result != null)
+				{
+					if(similarity<result[0][0])
+						index = i;
 					similarity = Math.max(similarity, result[0][0]);
+				}
 			}
 
 		if (similarity >= THRESHOLD || filter.length==0)
 		{
+			if(similarity >= THRESHOLD)
+				highlight($(this).find('.textbox'), index, filter.length);
 			$(this).removeClass('searchhide');
 		}
 		else
@@ -139,4 +155,23 @@ function fuzzy_search()
 			$(this).addClass('searchhide');
 		}
 	});
+}
+
+//textBlock = jQuery elem for div.textbox
+function highlight(textBlock, index, length)
+{
+	var before = textBlock.text().substring(0, index);
+	console.log(before);
+	var content = textBlock.text().substring(index, index+length);	
+	console.log(content);
+	var after = textBlock.text().substring(index+length);
+	console.log(after);
+
+	var newText = before+"<span class=highlight>"+content+"</span>"+after;
+	textBlock.html(newText);
+}
+
+function reset_highlights()
+{
+	$('span.highlight').contents().unwrap();
 }

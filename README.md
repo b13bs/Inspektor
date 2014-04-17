@@ -7,7 +7,7 @@ Logiciel qui inspecte un média à la recherche d'images contenant du texte. Les
 
 Version portable
 ----------------
-Dernière version executable portable pour windows : https://github.com/EtiDuc/Inspektor/blob/master/Release/Inspektor_win32.zip
+Dernière version executable portable pour windows : https://github.com/EtiDuc/Inspektor/tree/master/Release
 
 Aucune dépendance ne devrait être requise. Si l'exécutable cesse de répondre, essayez en mode de compatibilité Windows XP SP3.
 

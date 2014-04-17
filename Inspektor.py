@@ -118,6 +118,7 @@ class GUI(tk.Frame):
 					self.progressBar["value"] += 1
 					if DEBUG: print self.progressBar["value"], "/", self.progressBar["maximum"]
 					self.progressBar.update_idletasks()
+					self.update()
 
 					filepath = path.join(root, filename).replace("\\","/")
 					

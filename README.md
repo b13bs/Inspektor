@@ -3,15 +3,17 @@ Inspektor
 
 Description
 -----------
-Logiciel qui inspecte un média à la recherche d'images contenant du texte. Les images sont analysés avec un engin de reconnaissance optique de caractères. Le programme génère un rapport avec les résultats trouvés qui est portable et recherchable (expression régulière, approximative/fuzzy).
+Harvest media looking for images containing text and parse it. Those images are analyzed with an optical caracter recognition engine. The results from the text image are presented in report and searchable with regular expression or with fuzzy string search.
 
-Version portable
+
+Portable version
 ----------------
-Dernière version executable portable pour windows : https://github.com/EtiDuc/Inspektor/tree/master/Release
+The program is multi-platform because it uses Python scripting language and Web technologies. However, there is a Windows portable executable released: https://github.com/b13bs/Inspektor/tree/master/Release
 
-Aucune dépendance ne devrait être requise. Si l'exécutable cesse de répondre, essayez en mode de compatibilité Windows XP SP3.
+If the program stops working on Windows, try in compatibility mode Windows XP SP3.
 
-Dépendances
+
+Dependencies
 -----------
  - Python 2.7
  - python-tesseract
@@ -19,8 +21,9 @@ Dépendances
  - numpy
  - PIL (Python Image Library)
 
-Ne pas oublier de mettre C:\Python27 dans votre PATH!
+On Windows, add "C:\Python27" to your PATH.
 
-Autres infos
+
+Additionnal informations
 ------------
-Pour créer la version portable nous utilisons PyInstaller : https://github.com/pyinstaller/pyinstaller
+To create the Windows PE file, we used PyInstaller: https://github.com/pyinstaller/pyinstaller
